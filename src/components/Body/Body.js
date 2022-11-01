@@ -1,11 +1,12 @@
 import React, { useRef, useState } from "react";
 import ReactToPrint from "react-to-print";
-import {   Mail, Database, Download, Save } from "react-feather";
+import {   Mail, Database, Download, Save, PlusCircle } from "react-feather";
 
 import Collapsible from 'react-collapsible';
 
 import Editor from "../Editor/Editor";
 import Resume from "../Resume/Resume";
+import { SpeedDial,SpeedDialAction,SpeedDialIcon } from "@mui/material";
 
 import styles from "./Body.module.css";
 
@@ -65,20 +66,29 @@ function Body() {
     <div className={styles.container}>
       <p className={styles.heading}>Resume Builder</p>
       <div className={styles.toolbar}>
-        <Collapsible trigger={<button>Colors</button>}>
-        <div className={styles.colors}>
-          {colors.map((item) => (
-            <span
-              key={item}
-              style={{ backgroundColor: item }}
-              className={`${styles.color} ${
-                activeColor === item ? styles.active : ""
-              }`}
-              onClick={() => setActiveColor(item)}
-            />
-          ))}
-        </div>
-        </Collapsible>
+
+          <SpeedDial
+            ariaLabel="SpeedDial basic example"
+            icon={<SpeedDialIcon />}>
+           
+            {colors.map((item) => (
+               
+              <SpeedDialAction 
+                // key={item}
+                key={colors.name}
+                icon={colors.icon}
+                tooltipTitle={colors.name}
+                
+                style={{ backgroundColor: item }}
+                className={`${styles.color} ${
+                  activeColor === item ? styles.active : ""
+                }`}
+                onClick={() => setActiveColor(item)}
+                />
+            ))}
+          {<div className={styles.colors}/>}
+        </SpeedDial>
+
         <ReactToPrint
           trigger={() => {
             return (

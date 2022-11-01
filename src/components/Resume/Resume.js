@@ -1,9 +1,10 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import {
-  AtSign,
+  
   Calendar,
   GitHub,
   Linkedin,
+  Mail,
   MapPin,
   Paperclip,
   Phone,
@@ -308,12 +309,14 @@ const Resume = forwardRef((props, ref) => {
       <div ref={containerRef} className={styles.container}>
         <div className={styles.header}>
           <p className={styles.heading}>{info.basicInfo?.detail?.name}</p>
+          <p className={styles.heading}>{info.basicInfo?.detail?.name}</p>
           <p className={styles.subHeading}>{info.basicInfo?.detail?.title}</p>
+          
 
           <div className={styles.links}>
             {info.basicInfo?.detail?.email ? (
               <a className={styles.link} type="email">
-                <AtSign /> {info.basicInfo?.detail?.email}
+                <Mail /> {info.basicInfo?.detail?.email}
               </a>
             ) : (
               <span />
