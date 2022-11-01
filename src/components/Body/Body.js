@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import ReactToPrint from "react-to-print";
-import { ArrowDown } from "react-feather";
+import {   Mail, Database, Download, Save } from "react-feather";
 
 import Editor from "../Editor/Editor";
 import Resume from "../Resume/Resume";
@@ -79,12 +79,23 @@ function Body() {
           trigger={() => {
             return (
               <button>
-                Download <ArrowDown />
+                Download <Download />
               </button>
+              
             );
           }}
           content={() => resumeRef.current}
         />
+          <button>
+                Save <Save />
+            </button>
+            <button>
+                Mail <Mail />
+            </button>
+            
+            <button> <input />
+                Fetch <Database />
+            </button>
       </div>
       <div className={styles.main}>
         <Editor
