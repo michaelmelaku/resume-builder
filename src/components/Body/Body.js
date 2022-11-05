@@ -276,7 +276,7 @@ function Body() {
           setInformation={setResumeInformation}
         />
         <Resume
-          ref={resumeRef}
+          ref={resumeRef} 
           sections={sections}
           information={resumeInformation}
           activeColor={activeColor}
