@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect, useRef, useState } from "react";
 import {
   
   Calendar,
+  Edit,
   GitHub,
   Linkedin,
   Mail,
@@ -9,6 +10,7 @@ import {
   Paperclip,
   Phone,
 } from "react-feather";
+import Editor from "../Editor/Editor";
 
 import styles from "./Resume.module.css";
 
@@ -285,6 +287,7 @@ const Resume = forwardRef((props, ref) => {
 
     setColumns(tempColumns);
   };
+  
 
   useEffect(() => {
     setColumns([
@@ -308,7 +311,8 @@ const Resume = forwardRef((props, ref) => {
     <div ref={ref}>
       <div ref={containerRef} className={styles.container}>
         <div className={styles.header}>
-          <p className={styles.heading}>{info.basicInfo?.detail?.name}</p>
+          {/* <p className={styles.subHeading}>{info.basicInfo?.detail?.id}</p> */}
+          <img className={styles.heading}>{info.basicInfo?.detail?.name}</img>
           <p className={styles.heading}>{info.basicInfo?.detail?.name}</p>
           <p className={styles.subHeading}>{info.basicInfo?.detail?.title}</p>
           

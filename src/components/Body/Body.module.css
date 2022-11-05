@@ -63,3 +63,11 @@
   gap: 30px;
   width: 100%;
 }
+
+
+/*-------------popup css ----------------*/
+.success {
+  width: 100%;
+  color: red;
+  background-color: rebeccapurple;
+}

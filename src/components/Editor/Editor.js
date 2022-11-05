@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { X } from "react-feather";
 
 import InputControl from "../InputControl/InputControl";
@@ -19,7 +19,21 @@ function Editor(props) {
   const [sectionTitle, setSectionTitle] = useState(
     sections[Object.keys(sections)[0]]
   );
+
+  
+  // const prevResumeId = useRef();
+  
+
+  // useEffect(() => {
+  //   //assign the ref's current value to the count Hook
+    
+  //   console.log(resumeId)
+    
+  // },[] );
+
+
   const [values, setValues] = useState({
+    // id: !activeInformation?.detail?.id || '',
     name: activeInformation?.detail?.name || "",
     title: activeInformation?.detail?.title || "",
     linkedin: activeInformation?.detail?.linkedin || "",
@@ -27,6 +41,8 @@ function Editor(props) {
     phone: activeInformation?.detail?.phone || "",
     email: activeInformation?.detail?.email || "",
   });
+  
+  console.log(values.id);
 
   const handlePointUpdate = (value, index) => {
     const tempValues = { ...values };
@@ -225,6 +241,7 @@ function Editor(props) {
   const basicInfoBody = (
     <div className={styles.detail}>
       <div className={styles.row}>
+        
         <InputControl
           label="Name"
           placeholder="Enter your full name eg. Aashu"
@@ -353,10 +370,14 @@ function Editor(props) {
     }
   };
 
+  
+
   const handleSubmission = () => {
     switch (sections[activeSectionKey]) {
       case sections.basicInfo: {
         const tempDetail = {
+          // id: values,
+          image: values.image,
           name: values.name,
           title: values.title,
           linkedin: values.linkedin,
@@ -370,7 +391,7 @@ function Editor(props) {
           [sections.basicInfo]: {
             ...prev[sections.basicInfo],
             detail: tempDetail,
-            sectionTitle,
+            sectionTitle,  
           },
         }));
         break;
@@ -481,6 +502,7 @@ function Editor(props) {
     }
   };
 
+
   const handleAddNew = () => {
     const details = activeInformation?.details;
     if (!details) return;
@@ -589,6 +611,7 @@ function Editor(props) {
     });
   }, [activeDetailIndex]);
 
+  console.log(values.id);
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -647,7 +670,7 @@ function Editor(props) {
 
         {generateBody()}
 
-        <button onClick={handleSubmission}>Save</button>
+        <button onClick={handleSubmission}>Update Info</button>
       </div>
     </div>
   );
