@@ -257,8 +257,19 @@ function Body() {
         />
 
           <div >
-          <Popup contentStyle={{backgroundColor:'#E5DCDA',marginTop:'100px',fontSize:'36px',textAlign:'center',width:'700px',height:'200px' , }}trigger={<button >Save <Save /></button>}>
-                <br/>Saved Successfully !!! <br/> <button style={{backgroundColor: '#239ce2',color:'white',borderRadius:'10px 10px',fontSize:'24px',width:'100px',marginTop:'15px'}}>OK</button>
+          <Popup contentStyle={{  backgroundColor:'#E5DCDA',
+                                  marginTop:'100px',
+                                  fontSize:'36px',
+                                  textAlign:'center',
+                                  width:'700px',
+                                  height:'200px' }} trigger={<button >Save <Save /></button>}>
+
+                  <br/>Saved Successfully !!! <br/> <button href=''  style={{ backgroundColor: '#239ce2',
+                                                                                        color:'white',
+                                                                                        borderRadius:'10px 10px',
+                                                                                        fontSize:'24px',
+                                                                                        width:'100px',
+                                                                                        marginTop:'15px'}} >OK</button>
             </Popup>
             </div>
             <button onClick={() => window.location = 'mailto:yourmail@domain.com'}>
